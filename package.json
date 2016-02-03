@@ -1,0 +1,30 @@
+{
+  "name": "visma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^1.0.12",
+    "google-calendar-events": "^1.0.5",
+    "gulp": "^3.9.0",
+    "live-server": "^0.9.1"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.5.4",
+    "express": "^4.13.4",
+    "gulp-jshint": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.1.1",
+    "gulp-server-livereload": "^1.6.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "tiny-lr": "^0.2.1"
+  }
+}

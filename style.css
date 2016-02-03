@@ -1,0 +1,96 @@
+
+  html{
+        font-family: 'Open Sans', sans-serif;
+        background: #EEEFF4;
+      }
+     #output{
+      width: 500px;
+      padding: 20px;
+     }
+      p{
+        padding: 14px;
+        background: #fff;
+        margin: 5px;
+        font-size: 20px;
+        color: #3C6EA8;
+        width: 240px;
+        display: block;
+        box-shadow: -1px 1px 5px 0px #ccc;
+      }
+
+      p > span{
+      	display: block;
+      	padding: 5px 0px;
+      	color: #A94646;
+      }
+
+
+      .frontpage h1 a{
+        width: 300px;
+        color: #000;
+        padding: 15px 20px;
+        font-size: 22px;
+        font-weight: normal;
+        margin-left: 20px;
+        margin-top: 25px;
+        border-bottom:4px solid #5092E0;
+        text-decoration: none;
+
+      }
+
+      .frontpage h1{
+        text-align: left;
+        display: inline-block;
+      }
+
+
+
+.intern > div {
+	display: table; overflow: hidden;
+	float: left;
+}
+ .intern div h2{
+ 		color: #3C6EA8;
+		font-size: 24px;
+		text-align: left;
+		display: block;
+		padding:10px  20px;
+		margin:15px 70px;
+		text-align: center;
+		font-weight: normal;	
+ }
+
+ .intern > div > div{
+ 	
+ }
+
+.activity-title{
+	line-height: 43px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    display: table;
+}
+
+.activity-header-title{
+	margin-bottom: 8px;
+    width: 444px;
+    padding: 12px;
+    height: 43px;
+    float: left;
+    display: block;
+}
+
+.activity-header-month{
+	float: left;
+}
+
+.month{
+	    width: 50px;
+    display: block;
+    padding: 14px 12px 10px;
+    margin-left: 8px;
+    float: left;
+    font-weight: bold;
+    text-align: center;
+    height: 43px;
+}

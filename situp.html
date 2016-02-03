@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Situp aktiviteter</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="./js/google-calendar-events.min.js"></script>
+
+
+
+</head>
+
+
+
+<body>
+<div id="eventslist">
+
+
+</div>
+
+<SCRIPT TYPE="text/javascript">
+	var mykey = 'AIzaSyA1Omc5URgAaX7vmMsNseBlT5suMTyY1n8'; 
+	var calendarid = 'visma.com_puqel1o7lrsgght193npcimt5k@group.calendar.google.com';
+	
+	var googleCalendar = $.grabCalendar({
+		type: "events",
+		clean_date: true, 
+		maxEvents: 15,
+		upcoming: true,
+		metadata: ["Innebandy", "Cageball"]
+
+	});
+
+	console.log(googleCalendar);
+ 
+	var tourDates = '<li>';
+	for (var i = 0; i < googleCalendar.length; i++) {
+	 
+	    startDate = googleCalendar[i].start.split(" ");
+
+	 
+	    startTime = startDate[5] + " " + startDate[6];
+	
+	 
+	    tourDates += '<div class="date-box"><div class="info date"><div class="day">' + startDate[2].substring(0,2);
+	    tourDates += '</div><div class="month">' + startDate[1].substring(0, 3) + '</div>';
+	    tourDates += '<div class="year">' + startDate[3] + '</div></div>';
+	 
+	    tourDates += '<div class="place"><div class="ico"></div>' + googleCalendar[i].summary + '</div></div>';
+	    tourDates += '<div class="info"><div class="time"><div class="ico"></div>' + startTime + '</div>';
+
+	 
+	    if (i == googleCalendar.length - 1) {
+	        tourDates += '</li>';
+	        // appending it to the webpage
+	        $("#eventslist").append(tourDates);
+	    }
+	    else if ((i+1) % 5 == 0 && i != 0) {
+	        tourDates += '</li><li>';
+	    }
+	}
+
+
+</SCRIPT>
+</body>
+
+</html>
