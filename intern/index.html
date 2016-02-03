@@ -1,0 +1,273 @@
+
+
+    <div class="activity-header">
+    <div class="activity-header-title">
+      Interne aktiviteter
+    </div>
+    <div class="activity-header-month">
+        <div class="month">jan</div>
+        <div class="month">feb</div>
+        <div class="month">mar</div>
+        <div class="month">apr</div>
+        <div class="month">mai</div>
+        <div class="month">jun</div>
+    </div>
+  </div>
+
+
+  <div class="activity-bundle" id="internbundle">
+
+<!-- activity_bundle end -->
+  </div>
+
+
+
+
+<div ng-include="'../situp/index.html'"></div>
+
+<div ng-include="'../faggruppe/index.html'"></div>
+
+
+ <script>
+
+
+     var clientId = '426029628066-geprn7faca1ifrfn1psbqhfdvtcf5dm9.apps.googleusercontent.com';
+    var scopes = ["https://www.googleapis.com/auth/calendar.readonly"];
+    var apiKey = "AIzaSyALQN_VW2W4GKEM8w76RTmdrPA0LHyr4dE";
+
+  function handleClientLoad() {
+     gapi.client.setApiKey(apiKey);
+    
+     window.setTimeout(checkAuth, 200);
+    //checkAuth();
+  }
+
+
+  function checkAuth() {
+    gapi.auth.authorize({ client_id: clientId, scope: scopes, immediate: true }, loadAPI);
+        }
+
+
+         function handleAuthResult(authResult) {
+        if (authResult && !authResult.error) {
+          console.log("Done");
+          gapi.client.load('calendar', 'v3', listUpcomingEvents);
+        } else {
+         console.log("Not loading");
+        }
+      }
+
+      function loadAPI(){
+        gapi.client.load('calendar', 'v3', listUpcomingEvents);
+      }
+
+    
+      function listUpcomingEvents() {
+
+        var requestInternEvents = gapi.client.calendar.events.list({
+          'calendarId': 'visma.com_coon6lr1vqu0uh2tu8ppp8omg8@group.calendar.google.com',
+          'timeMin': (new Date("2016-01-01")).toISOString(),
+          'timeMax': (new Date("2016-07-01")).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          // 'maxResults': 24,
+          //'maxResults': 24,
+          'orderBy': 'startTime'
+        });
+
+        var requestSitUpEvents = gapi.client.calendar.events.list({
+          'calendarId': 'visma.com_puqel1o7lrsgght193npcimt5k@group.calendar.google.com',
+           'timeMin': (new Date("2016-02-01")).toISOString(),
+          'timeMax': (new Date("2016-07-01")).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          // 'maxResults': 18,
+        //  'maxResults': 20,
+          'orderBy': 'startTime'
+        });
+
+        var requestFaggruppeEvents = gapi.client.calendar.events.list({
+          'calendarId': 'visma.com_t0qu80qpt6ci60e4268nsrquag@group.calendar.google.com',
+           'timeMin': (new Date("2016-02-01")).toISOString(),
+          'timeMax': (new Date("2016-07-01")).toISOString(),
+          'showDeleted': false,
+          'singleEvents': true,
+          // 'maxResults': 18,
+        //  'maxResults': 20,
+          'orderBy': 'startTime'
+        });
+
+        
+          requestInternEvents.execute(function(resp) {
+         
+        //  sitUpEvents = resp.items;
+          var events = resp.items;
+
+          function reverse(s){
+                return s.split("-").reverse().join(".");
+          }
+
+          if (events.length > 0) {
+            for (i = 0; i < events.length; i++) {
+              var event = events[i];
+             // var date = Date.parse(event.start.dateTime);
+              
+
+              var dato = event.start.dateTime;
+
+              var date = event.start.dateTime;
+              
+             
+              var dateArray = new Array();
+
+             if(dato != undefined){
+              dateArray = date.split('T');
+             // date = date.split('T');
+              // console.log(date.split('T'));
+              var when = event.start.dateTime;
+              if (!when) {
+                when = event.start.dateTime;
+              }
+
+              var mnd = dateArray[0].split('-');
+             // console.log(mnd);
+
+              var dateformat = mnd[2] + '.' + mnd[1];
+
+             var eventAppend  = '#internbundle';
+             var appendA = $('<div class="desktop">' + '<div class="events"><div class="event-name">' +  event.summary + '</div>').appendTo(eventAppend);
+             
+             if(mnd[1]=='01'){
+                 var appendB = $('<div class="event-dates"><div class="date active">'+dateformat+'</div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+            }
+
+              else if(mnd[1]=='02'){
+                 var appendB = $('<div class="event-dates"><div class="date"></div><div class="date active">'+dateformat+'</div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+                 // appendFeb(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else if(mnd[1]=='03'){
+                  var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date active"> '+dateformat+'</div><div class="date"></div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+                 // appendMars(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else if(mnd[1]=='04'){
+                  var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date"></div><div class="date active">'+dateformat+'</div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+              }
+              else if(mnd[1]=='05'){
+                var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date active">'+dateformat+'</div><div class="date"></div>').appendTo(appendA);
+                // appendMai(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else if(mnd[1]=='06'){
+                var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date active">'+dateformat+'</div>').appendTo(appendA);
+                 //appendJuni(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else{
+
+              }
+
+
+            
+              
+              $('</div></div></div>').appendTo(appendB);
+             
+             }
+             else{
+             }
+
+            }
+          } else {
+            //appendEvent('No upcoming events found.');
+            console.log('No upcoming events found.');
+          }
+
+        });
+
+
+ requestFaggruppeEvents.execute(function(resp) {
+         
+        //  sitUpEvents = resp.items;
+          var events = resp.items;
+
+          function reverse(s){
+                return s.split("-").reverse().join(".");
+          }
+
+          if (events.length > 0) {
+            for (i = 0; i < events.length; i++) {
+              var event = events[i];
+             // var date = Date.parse(event.start.dateTime);
+              
+
+              var dato = event.start.dateTime;
+
+              var date = event.start.dateTime;
+              
+             
+              var dateArray = new Array();
+
+             if(dato != undefined){
+              dateArray = date.split('T');
+             // date = date.split('T');
+              // console.log(date.split('T'));
+              var when = event.start.dateTime;
+              if (!when) {
+                when = event.start.dateTime;
+              }
+
+              var mnd = dateArray[0].split('-');
+             // console.log(mnd);
+
+              var dateformat = mnd[2] + '.' + mnd[1];
+
+             var eventAppend  = '#faggruppebundle';
+             var appendA = $('<div class="desktop">' + '<div class="events"><div class="event-name">' +  event.summary + '</div>').appendTo(eventAppend);
+             
+             if(mnd[1]=='01'){
+                 var appendB = $('<div class="event-dates"><div class="date active">'+dateformat+'</div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+            }
+
+              else if(mnd[1]=='02'){
+                 var appendB = $('<div class="event-dates"><div class="date"></div><div class="date active">'+dateformat+'</div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+                 // appendFeb(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else if(mnd[1]=='03'){
+                  var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date active"> '+dateformat+'</div><div class="date"></div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+                 // appendMars(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else if(mnd[1]=='04'){
+                  var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date"></div><div class="date active">'+dateformat+'</div><div class="date"></div><div class="date"></div>').appendTo(appendA);
+              }
+              else if(mnd[1]=='05'){
+                var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date active">'+dateformat+'</div><div class="date"></div>').appendTo(appendA);
+                // appendMai(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else if(mnd[1]=='06'){
+                var appendB = $('<div class="event-dates"><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date"></div><div class="date active">'+dateformat+'</div>').appendTo(appendA);
+                 //appendJuni(event.summary  + " - " + reverse(dateArray[0]));
+              }
+              else{
+
+              }
+
+
+            
+              
+              $('</div></div></div>').appendTo(appendB);
+             
+             }
+             else{
+             }
+
+            }
+          } else {
+            //appendEvent('No upcoming events found.');
+            console.log('No upcoming events found.');
+          }
+
+        });
+
+    
+
+      }
+
+ </script>
+ <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
