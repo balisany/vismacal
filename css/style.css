@@ -1,0 +1,150 @@
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.frontpage h1 a {
+  width: 300px;
+  color: #000;
+  padding: 15px 20px;
+  font-size: 22px;
+  font-weight: normal;
+  margin-left: 20px;
+  margin-top: 25px;
+  border-bottom: 4px solid #5092E0;
+  text-decoration: none; }
+
+.frontpage h1 {
+  text-align: left;
+  display: inline-block;
+  display: none; }
+
+.activity-header {
+  line-height: 43px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: fixed;
+  top: 0px;
+  background: #fff;
+  max-width: 970px;
+  z-index: 99999;
+  padding: 20px 0px 0px; }
+  .activity-header .activity-header-title {
+    margin-bottom: 8px;
+    width: 360px;
+    padding: 12px  0px 0px 20px;
+    height: 43px;
+    float: left;
+    display: block;
+    color: #3C6EA8; }
+  .activity-header .activity-header-month {
+    float: left; }
+    .activity-header .activity-header-month .month {
+      width: 60px;
+      display: block;
+      padding: 14px 12px 10px;
+      margin-left: 8px;
+      float: left;
+      font-weight: normal;
+      text-align: center;
+      height: 43px;
+      color: #3C6EA8; }
+    @media screen and (max-width: 940px) {
+      .activity-header .activity-header-month {
+        display: none; } }
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0px auto 50px; }
+  @media screen and (max-width: 940px) {
+    .container {
+      min-width: 100%; } }
+
+.activity-bundle {
+  display: block;
+  position: relative;
+  margin: 100px 0px 50px;
+  width: 970px; }
+  @media screen and (max-width: 2400px) {
+    .activity-bundle .mobile {
+      display: none; }
+    .activity-bundle .desktop {
+      display: inline-block;
+      width: 100%; }
+    .activity-bundle .events {
+      display: flex;
+      margin: 10px 0px; }
+      .activity-bundle .events .event-name {
+        width: 37%;
+        float: left;
+        font-size: 20px;
+        background: #F3F3F3;
+        padding: 10px 0px 10px 20px;
+        text-indent: 0px;
+        line-height: 34px; }
+        .activity-bundle .events .event-name.long {
+          height: 170px; }
+      .activity-bundle .events .date {
+        background: #f3f3f3;
+        width: 60px;
+        min-height: 66px;
+        font-size: 20px;
+        padding: 20px 12px 0px;
+        float: left;
+        margin: 0px 4px;
+        color: #FFF;
+        text-align: center;
+        line-height: 50px; }
+        .activity-bundle .events .date.active {
+          background-color: #3C6EA8; }
+      .activity-bundle .events .long .date {
+        margin-bottom: 8px;
+        padding: 10px;
+        min-height: 174px;
+        width: 64px;
+        line-height: 34px; }
+        .activity-bundle .events .long .date span {
+          display: block; }
+    .activity-bundle #situpbundle {
+      margin-bottom: 100px; }
+      .activity-bundle #situpbundle .event-dates .date {
+        margin-left: 0px;
+        margin-right: 2px; } }
+  .activity-bundle #faggruppebundle {
+    margin-bottom: 100px; }
+  @media screen and (max-width: 940px) {
+    .activity-bundle .desktop {
+      display: block; }
+      .activity-bundle .desktop .event-name {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 4px;
+        position: relative;
+        font-size: 1.8em;
+        display: table;
+        clear: both;
+        width: 100%; }
+      .activity-bundle .desktop .event-dates {
+        background-color: #3C6EA8;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+        clear: both;
+        width: 100%; }
+        .activity-bundle .desktop .event-dates .date {
+          clear: both;
+          width: auto;
+          text-align: left;
+          margin-top: 0px;
+          font-size: 1.4em;
+          height: auto;
+          background: none;
+          display: block;
+          color: white;
+          padding: 6px 20px; }
+          .activity-bundle .desktop .event-dates .date:empty {
+            display: none; } }
