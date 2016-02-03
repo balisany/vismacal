@@ -1,0 +1,53 @@
+  <div ng-controller="fagCtrl" style="display:block; float:left;">
+  <div class="activity-header-title">
+  	<h1>
+  		  {{title}}
+  	</h1>
+    
+    </div>
+  <div class="activity-bundle" id="situpbundle">
+   <div ng-repeat="(key, value) in dict" class="events">
+        <div id="sitUpEventName" class="event-name">
+            {{ key }}
+        </div>
+        <div class="date">
+        </div>
+        <div class="date active">
+          <span ng-repeat="(key, value) in value | filter : 'feb'">
+           {{value.date}}
+         </span>
+        </div>
+        <div class="date active">
+          <span ng-repeat="(key, value) in value | filter : 'mar'">
+           {{value.date}}
+         </span>
+        </div>
+        <div class="date active">
+          <span ng-repeat="(key, value) in value | filter : 'apr'">
+           {{value.date}}
+         </span>
+        </div>
+        <div class="date active">
+          <span ng-repeat="(key, value) in value | filter : 'mai'">
+           {{value.date}}
+         </span>
+        </div>
+        <div class="date active">
+          <span ng-repeat="(key, value) in value | filter : 'jun'">
+           {{value.date}}
+         </span>
+        </div>
+
+<!-- activity_bundle end -->
+  </div>
+
+
+<!-- Container end -->
+</div>
+
+<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
+
+
+  </div>
+
